@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>simple login · css</title>
+  <style>
+    /* ---------- RESET & BASE (same design language) ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #fafbfc;
+      color: #1e293b;
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ---------- SIMPLE HEADER (match home) ---------- */
+    .site-header {
+      background: white;
+      padding: 0.9rem 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0,0,0,0.05);
+      border-bottom: 1px solid #e9edf2;
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo a {
+      font-weight: 700;
+      font-size: 1.7rem;
+      letter-spacing: -0.5px;
+      text-decoration: none;
+      color: #0f1825;
+    }
+
+    .logo span {
+      background: #e7edf8;
+      padding: 0.2rem 0.5rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 400;
+      margin-left: 6px;
+      color: #1e3c5f;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #334155;
+      transition: color 0.15s;
+      font-size: 1.05rem;
+    }
+
+    .nav-links a:hover {
+      color: #1d4ed8;
+    }
+
+    /* ---------- LOGIN CARD (simple & centered) ---------- */
+    .login-section {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+    }
+
+    .login-card {
+      background: white;
+      max-width: 440px;
+      width: 100%;
+      padding: 2.5rem 2.2rem 2.8rem;
+      border-radius: 40px;
+      box-shadow: 0 25px 45px -20px rgba(0,0,0,0.15), 0 2px 8px rgba(0,0,0,0.02);
+      border: 1px solid #edf2f9;
+      transition: transform 0.2s;
+    }
+
+    .login-card:hover {
+      box-shadow: 0 30px 50px -22px #1e293b30;
+    }
+
+    .login-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .login-header h2 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: #0b1e32;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+    }
+
+    .login-header p {
+      color: #547092;
+      font-size: 1rem;
+    }
+
+    /* ---------- FORM STYLES (fresh & clean) ---------- */
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: block;
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: #2d3a4f;
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.3px;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.9rem 1.2rem;
+      font-size: 1rem;
+      font-family: inherit;
+      background: #f8fcff;
+      border: 1.5px solid #dde5ed;
+      border-radius: 36px;
+      outline: none;
+      transition: all 0.2s ease;
+      color: #1e293b;
+    }
+
+    input:focus {
+      border-color: #1d4ed8;
+      background: #ffffff;
+      box-shadow: 0 0 0 5px rgba(29,78,216,0.08);
+    }
+
+    input::placeholder {
+      color: #9aaebb;
+      font-weight: 300;
+      font-size: 0.95rem;
+    }
+
+    /* password row + forgot link */
+    .password-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.3rem;
+    }
+
+    .forgot-link {
+      font-size: 0.85rem;
+      color: #1d4ed8;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dashed #b3ccff;
+    }
+
+    .forgot-link:hover {
+      color: #0f2b7a;
+      border-bottom-style: solid;
+    }
+
+    /* button */
+    .login-btn {
+      width: 100%;
+      background: #1d4ed8;
+      color: white;
+      border: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 0.9rem 1.8rem;
+      border-radius: 60px;
+      cursor: pointer;
+      transition: 0.15s;
+      box-shadow: 0 10px 22px -12px #1d4ed8cc;
+      margin: 1.2rem 0 1.8rem;
+      border: 1.5px solid transparent;
+    }
+
+    .login-btn:hover {
+      background: #1e3fae;
+      transform: translateY(-2px);
+      box-shadow: 0 18px 28px -12px #1d4ed8;
+    }
+
+    /* signup callout */
+    .signup-text {
+      text-align: center;
+      color: #475569;
+      font-size: 0.95rem;
+      border-top: 1px solid #e6edf6;
+      padding-top: 1.5rem;
+      margin-top: 0.2rem;
+    }
+
+    .signup-text a {
+      color: #1d4ed8;
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+      margin-left: 0.3rem;
+    }
+
+    .signup-text a:hover {
+      border-bottom-color: #1d4ed8;
+    }
+
+    /* simple divider with OR */
+    .or-divider {
+      display: flex;
+      align-items: center;
+      color: #8899b0;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      margin: 1.2rem 0 0.5rem;
+    }
+
+    .or-divider::before,
+    .or-divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #cbd5e1, transparent);
+    }
+
+    .or-divider::before {
+      margin-right: 1rem;
+    }
+
+    .or-divider::after {
+      margin-left: 1rem;
+    }
+
+    /* social placeholder (minimal) */
+    .social-logos {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 1rem 0 0.2rem;
+    }
+
+    .social-icon {
+      background: #f0f5fd;
+      width: 44px;
+      height: 44px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: #1d3d6b;
+      text-decoration: none;
+      transition: all 0.15s;
+      border: 1px solid #e2eaf5;
+    }
+
+    .social-icon:hover {
+      background: #1d4ed8;
+      color: white;
+      border-color: #1d4ed8;
+      transform: scale(1.05);
+    }
+
+    /* ---------- FOOTER (same as home) ---------- */
+    .site-footer {
+      background: white;
+      border-top: 1px solid #dee5ed;
+      padding: 2rem 2rem 1.5rem;
+      margin-top: auto;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: #475569;
+      font-size: 0.95rem;
+    }
+
+    .footer-links a:hover {
+      color: #1d4ed8;
+    }
+
+    .copyright {
+      color: #68768a;
+      font-size: 0.9rem;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 550px) {
+      .header-inner {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .nav-links {
+        gap: 1.2rem;
+      }
+      .login-card {
+        padding: 2rem 1.5rem;
+      }
+      .login-header h2 {
+        font-size: 1.9rem;
+      }
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo">
+      <a href="#">simple<span>home</span></a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#">home</a></li>
+      <li><a href="#">work</a></li>
+      <li><a href="#">about</a></li>
+      <li><a href="#">journal</a></li>
+    </ul>
+  </div>
+</header>
+
+<main class="login-section">
+  <div class="login-card">
+
+    <div class="login-header">
+      <!-- <h2>welcome back</h2> -->
+       <h1>login page is here </h1>
+      <p>log in to your simple account</p>
+    </div>
+
+    <form>
+      <div class="form-group">
+        <label for="email">email</label>
+        <input type="email" id="email" placeholder="hello@simple.xyz" autocomplete="off">
+      </div>
+
+      <div class="form-group">
+        <div class="password-row">
+          <label for="password">password</label>
+          <a href="#" class="forgot-link">forgot?</a>
+        </div>
+        <input type="password" id="password" placeholder="••••••••">
+      </div>
+
+      <button type="submit" class="login-btn">log in</button>
+
+      <div class="or-divider">or</div>
+
+      <div class="social-logos">
+        <a href="#" class="social-icon" aria-label="google">G</a>
+        <a href="#" class="social-icon" aria-label="apple"></a>
+        <a href="#" class="social-icon" aria-label="github">⚙️</a>
+      </div>
+
+      <div class="signup-text">
+        don’t have an account? <a href="#">sign up</a>
+      </div>
+    </form>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="copyright">© 2025 simple home — all good</div>
+    <div class="footer-links">
+      <a href="#">privacy</a>
+      <a href="#">terms</a>
+      <a href="#">contact</a>
+      <a href="#">instagram</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
